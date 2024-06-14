@@ -1,0 +1,12 @@
+<RCC>
+  <qresource>
+    <file>images/add_icon.png</file>
+    <file>images/check_box_checked.png</file>
+    <file>images/check_box_unchecked.png</file>
+    <file>images/close_icon.png</file>
+    <file>images/top_icon.png</file>
+    <file>images/add_icon.png</file>
+    <file>images/close_icon.png</file>
+    <file>images/top_icon.png</file>
+  </qresource>
+</RCC>
