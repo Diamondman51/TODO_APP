@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'list_of_tasks_uiOKwsfO.ui'
+## Form generated from reading UI file 'list_of_tasks_uiWCauiV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -37,7 +37,8 @@ class Ui_Form(object):
 "\n"
 "QLineEdit {\n"
 "	border-radius: 5px;\n"
-"	border: 1 solid rgba(0, 0, 0, 0.1)\n"
+"	border: 1 solid rgba(0, 0, 0, 0.1);\n"
+"	padding: 5;\n"
 "}\n"
 "\n"
 "QListWidget {\n"

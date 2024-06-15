@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
-    <height>62</height>
+    <width>433</width>
+    <height>84</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,17 +19,21 @@
 }
 
 QPushButton {
-	background-color: rgb(255, 255, 255);
-	border: 1px solid black
-	border-radius: 5px;
+	border-radius: 5;
+	border: 1px solid rgba(0, 0, 0, 0.1)
+}
+
+QFrame {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+QPushButton:pressed {
+	margin: 2 0 0 2
 }
 
 #btn_checkbox {
-	background-color: rgb(255, 255, 255);
-	border:none
+border:none;
 }
-
-
 
 QLineEdit {
 	border-radius: 2px;
@@ -39,13 +43,89 @@ QLineEdit {
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <widget class="QPushButton" name="btn_checkbox">
+     <property name="minimumSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resource.qrc">
+       <normaloff>:/images/check_box_unchecked.png</normaloff>
+       <normalon>:/images/check_box_checked.png</normalon>:/images/check_box_unchecked.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="minimumSize">
+      <size>
+       <width>300</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>300</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
      <item>
-      <widget class="QPushButton" name="btn_checkbox">
+      <widget class="QPushButton" name="btn_edit">
+       <property name="minimumSize">
+        <size>
+         <width>71</width>
+         <height>33</height>
+        </size>
+       </property>
        <property name="maximumSize">
         <size>
-         <width>30</width>
-         <height>30</height>
+         <width>71</width>
+         <height>33</height>
         </size>
        </property>
        <property name="text">
@@ -53,17 +133,16 @@ QLineEdit {
        </property>
        <property name="icon">
         <iconset resource="resource.qrc">
-         <normaloff>:/images/check_box_unchecked.png</normaloff>
-         <normalon>:/images/check_box_checked.png</normalon>:/images/check_box_unchecked.png</iconset>
+         <normaloff>:/images/edit.png</normaloff>:/images/edit.png</iconset>
        </property>
        <property name="iconSize">
         <size>
          <width>40</width>
-         <height>40</height>
+         <height>25</height>
         </size>
        </property>
        <property name="checkable">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="checked">
         <bool>false</bool>
@@ -71,53 +150,106 @@ QLineEdit {
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QFrame" name="frame">
+       <property name="minimumSize">
+        <size>
+         <width>71</width>
+         <height>31</height>
+        </size>
+       </property>
        <property name="maximumSize">
         <size>
-         <width>16777215</width>
-         <height>25</height>
+         <width>71</width>
+         <height>31</height>
         </size>
        </property>
-       <property name="readOnly">
-        <bool>true</bool>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
        </property>
-       <property name="placeholderText">
-        <string>write task</string>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_top">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="resource.qrc">
-         <normaloff>:/images/top_icon.png</normaloff>:/images/top_icon.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>22</width>
-         <height>22</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_delete">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="resource.qrc">
-         <normaloff>:/images/close_icon.png</normaloff>:/images/close_icon.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>22</width>
-         <height>22</height>
-        </size>
-       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="btn_top">
+          <property name="minimumSize">
+           <size>
+            <width>34</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>34</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/images/top_icon.png</normaloff>:/images/top_icon.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>22</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_delete">
+          <property name="minimumSize">
+           <size>
+            <width>34</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>34</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/images/close_icon.png</normaloff>:/images/close_icon.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>22</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </item>
     </layout>
@@ -127,5 +259,22 @@ QLineEdit {
  <resources>
   <include location="resource.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btn_edit</sender>
+   <signal>clicked()</signal>
+   <receiver>frame</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>384</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>430</x>
+     <y>83</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
