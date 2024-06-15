@@ -18,6 +18,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLineEdit,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 import resource_rc
+from custom_line_edit import CustomLineEdit
+
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -67,7 +69,7 @@ class Ui_Form(object):
 
         self.horizontalLayout_2.addWidget(self.btn_checkbox)
 
-        self.lineEdit = QLineEdit(Form)
+        self.lineEdit = CustomLineEdit(Form)
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setMinimumSize(QSize(300, 30))
         self.lineEdit.setMaximumSize(QSize(300, 30))

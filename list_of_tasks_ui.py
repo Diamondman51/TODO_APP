@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QHBoxLayout, QLabel,
     QLineEdit, QListWidget, QListWidgetItem, QPushButton,
     QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+from custom_line_edit import CustomLineEdit
 import resource_rc
 
 class Ui_Form(object):
