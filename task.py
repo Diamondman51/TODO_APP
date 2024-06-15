@@ -14,17 +14,15 @@ class Task(QWidget, Ui_Form):
     def __init__(self, list_of_tasks):
         super().__init__()
         self.list_of_tasks = list_of_tasks
-        self.index = 0
+        self.index = None
         self.setupUi(self)
         self.btn_edit.setVisible(False)
-        self.btn_delete.clicked.connect(
-            lambda: self.list_of_tasks.tasks_listWidget.takeItem(self.list_of_tasks.tasks_listWidget.currentRow()))
+        self.btn_delete.clicked.connect(self.btn_delete_clicked)
         self.btn_top.clicked.connect(self.move_to_top)
         self.lineEdit.selectionChanged.connect(self.on_text_changed)
         self.lineEdit.focus_out.connect(lambda: self.lineEdit.setReadOnly(True))
-
-    def focusOutEvent(self, e):
-        print("focusOutEvent", e)
+        self.btn_checkbox.clicked.connect(self.change_stylesheet)
+        # self.lineEdit.focus_in.connect(lambda: self.lineEdit.setReadOnly(False))
 
     def on_text_changed(self):
         word = self.lineEdit.selectedText()
@@ -32,49 +30,31 @@ class Task(QWidget, Ui_Form):
         if word:
             self.lineEdit.setReadOnly(False)
 
-
         # if self.btn_checkbox.isChecked:
         #     self.change_stylesheet()
 
     def move_to_top(self):
         self.top_button_clicked.emit(self.index)
 
-        # item, widget = self.list_of_tasks.item_to_widget(self.index)
-        # # current_row = self.list_of_tasks.tasks_listWidget.takeItem(self.list_of_tasks.tasks_listWidget.currentRow())
-        # # current_row = self.index
-        # self.list_of_tasks.tasks_listWidget.takeItem(self.index)
-        # self.list_of_tasks.tasks_listWidget.removeItemWidget(item)
-        #
-        # item = QListWidgetItem()
-        #
-        # widget.lineEdit.setText(self.lineEdit.text())
-        #
-        # item.setSizeHint(widget.sizeHint())
-        # # widget.setFocus()
-        # self.tasks_listWidget.addItem(item)
-        # self.tasks_listWidget.setItemWidget(item, widget)
+    def change_stylesheet(self, event):
+        self.lineEdit.setStyleSheet('text-decoration: line-through;') if event else self.lineEdit.setStyleSheet('')
+        connection = self.list_of_tasks.create_connection()
+        cursor = connection.cursor()
 
-        #
-        # widget.lineEdit.setText(self.list_of_tasks.task_lineEdit.text())
-        #
-        # item.setSizeHint(widget.sizeHint())
-        # # widget.setFocus()
-        # self.list_of_tasks.tasks_listWidget.addItem(item)
-        # self.list_of_tasks.tasks_listWidget.setItemWidget(item, widget)
+        query = '''update tasks set is_done=%s where text=%s'''
+        cursor.execute(query, (event, self.lineEdit.text()))
+        connection.commit()
+        connection.close()
 
-    # def move_to_top(self):
-    #     current_row = self.list_of_tasks.tasks_listWidget.currentRow()
-    #     if current_row != -1:
-    #         item = self.list_of_tasks.tasks_listWidget.takeItem(current_row)
-    #         widget = self.list_of_tasks.tasks_listWidget.itemWidget(item)
-    #
-    #         # Remove the widget from the list widget
-    #         self.list_of_tasks.tasks_listWidget.removeItemWidget(item)
-    #
-    #         # Insert the item at the top
-    #         self.list_of_tasks.tasks_listWidget.insertItem(0, item)
-    #         self.list_of_tasks.tasks_listWidget.setItemWidget(item, widget)
-    #         print(123)
+    def btn_delete_clicked(self):
+        connection = self.list_of_tasks.create_connection()
+        cursor = connection.cursor()
 
-    def change_stylesheet(self):
-        self.lineEdit.setStyleSheet('text-decoration: line-through;')
+        query = '''delete from tasks where text=%s'''
+        cursor.execute(query, (self.lineEdit.text(), ))
+        connection.commit()
+        connection.close()
+
+        # Now delete from the QListWidget
+        self.list_of_tasks.tasks_listWidget.takeItem(self.index)
+        # self.list_of_tasks.tasks_listWidget.update()
