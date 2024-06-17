@@ -25,7 +25,7 @@ class Window(QWidget, Ui_Form):
             widget.lineEdit.setText(self.task_lineEdit.text())
 
             item.setSizeHint(widget.sizeHint())
-            self.tasks_listWidget.addItem(item)
+            self.tasks_listWidget.insertItem(0, item)
             self.tasks_listWidget.setItemWidget(item, widget)
             self.task_lineEdit.clear()
 
