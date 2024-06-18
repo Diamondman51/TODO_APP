@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'list_of_tasks_uiWCauiV.ui'
+## Form generated from reading UI file 'list_of_tasks_uiBSzlUA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -18,14 +18,13 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QHBoxLayout, QLabel,
     QLineEdit, QListWidget, QListWidgetItem, QPushButton,
     QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
-from custom_line_edit import CustomLineEdit
 import resource_rc
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(472, 300)
+        Form.resize(470, 300)
         Form.setStyleSheet(u"QLabel {\n"
 "	background-color: rgba(255, 255, 255, 0);\n"
 "	color:rgb(90, 185, 90)\n"
@@ -86,17 +85,22 @@ class Ui_Form(object):
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
         self.horizontalLayout_2 = QHBoxLayout(self.widget)
+        self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(500, 20, QSizePolicy.Maximum, QSizePolicy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer)
 
         self.task_lineEdit = QLineEdit(self.widget)
         self.task_lineEdit.setObjectName(u"task_lineEdit")
         self.task_lineEdit.setMinimumSize(QSize(388, 30))
-        self.task_lineEdit.setMaximumSize(QSize(300, 16777215))
+        self.task_lineEdit.setMaximumSize(QSize(1200, 30))
 
         self.horizontalLayout_2.addWidget(self.task_lineEdit)
+
+        self.horizontalSpacer_3 = QSpacerItem(5, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_3)
 
         self.btn_add_task = QPushButton(self.widget)
         self.btn_add_task.setObjectName(u"btn_add_task")
@@ -107,6 +111,10 @@ class Ui_Form(object):
         self.btn_add_task.setIconSize(QSize(25, 25))
 
         self.horizontalLayout_2.addWidget(self.btn_add_task)
+
+        self.horizontalSpacer_2 = QSpacerItem(500, 20, QSizePolicy.Maximum, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
 
 
         self.verticalLayout.addWidget(self.widget)

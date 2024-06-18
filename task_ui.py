@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tasks_uiOxShTo.ui'
+## Form generated from reading UI file 'tasks_uiVMUBAR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.3
 ##
@@ -16,7 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLineEdit,
-    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
+    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
+    QWidget)
 import resource_rc
 from custom_line_edit import CustomLineEdit
 
@@ -25,7 +26,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(433, 84)
+        Form.resize(459, 66)
         Form.setStyleSheet(u"QWidget {\n"
 "	background-color: rgb(255, 255, 255);\n"
 "}\n"
@@ -53,7 +54,9 @@ class Ui_Form(object):
 "	padding: 5px\n"
 "}")
         self.horizontalLayout_2 = QHBoxLayout(Form)
+        self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(15, 0, 15, 0)
         self.btn_checkbox = QPushButton(Form)
         self.btn_checkbox.setObjectName(u"btn_checkbox")
         self.btn_checkbox.setMinimumSize(QSize(30, 30))
@@ -69,14 +72,22 @@ class Ui_Form(object):
 
         self.horizontalLayout_2.addWidget(self.btn_checkbox)
 
-        self.lineEdit = CustomLineEdit(Form)
+        self.horizontalSpacer = QSpacerItem(10, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer)
+
+        self.lineEdit = CustomLineEdit(self)
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setMinimumSize(QSize(300, 30))
-        self.lineEdit.setMaximumSize(QSize(300, 30))
+        self.lineEdit.setMaximumSize(QSize(16777215, 30))
         self.lineEdit.setStyleSheet(u"")
         self.lineEdit.setReadOnly(True)
 
         self.horizontalLayout_2.addWidget(self.lineEdit)
+
+        self.horizontalSpacer_2 = QSpacerItem(10, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setSpacing(0)
